@@ -1,0 +1,210 @@
+@import "reset.css";
+
+body{
+  background-color: #06071B;
+}
+.body-wrapper{
+  display: grid;
+  grid-template-areas: "header header" "content aside";
+}
+.header-wrapper{
+  grid-area: header;
+  .header{
+    grid-area: header;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    width: auto;
+    padding: 37px 71px;
+    font-weight: 400;
+    font-size: 16px;
+    white-space: nowrap;
+    .header__logo{
+      margin-right: 20px;
+      min-width: 150px;
+    }
+    .header__nav{
+      display: flex;
+      justify-content: space-between;
+      width: auto;
+      .nav__link{
+        margin-left: 3vw;
+        color: white;
+        text-decoration: none;
+      }
+    }
+    .header__button-group{
+      display: flex;
+      align-items: center;
+      .header__language{
+        margin: 0 20px;
+        color: white;
+        .language-button{
+          background-color: transparent;
+          border: none;
+          color: white;
+        }
+        .language--inactive{
+          color: rgba(255, 255, 255, 0.6);
+        }
+        span{
+          color: rgba(255, 255, 255, 0.6);
+        }
+      }
+      .header__join-button{
+        height: 45px;
+        width: 200px;
+        background: #07DBB4;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        color: black;
+      }
+    }
+  }
+}
+.content-wrapper{
+  grid-area: content;
+  margin: 40px 30px 0 auto;
+  .content__start-plate{
+    width: 825px;
+    height: 391px;
+    background: #121326;
+    border-radius: 15px;
+    font-weight: 500;
+    color: white;
+    padding: 24px;
+    margin-bottom: 20px;
+    h1{
+      font-size: 60px;
+      line-height: 120%;
+      margin-bottom: 10px;
+    }
+    .content__filters{
+      display: flex;
+      margin: 20px 0;
+      .filter-button{
+        height: 50px;
+        width: auto;
+        padding: 0 20px;
+        margin-right: 10px;
+        background: #242648;
+        border: none;
+        border-radius: 5px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .filter-button--active{
+        background: #8287F3;
+        color: #06071B;
+      }
+      
+    }
+    .content__more-filters-button{
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 30px;
+      span{
+        margin-left: 5px;
+        text-decoration: underline;
+        font-size: 14px;
+        line-height: 120%;
+      }
+    }
+    .content__more-filters{
+      .more-filters__title{
+        display: block;
+        margin-bottom: 10px;
+      }
+      ul.more-filters__filters-list{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        li.filters-list__filter{
+          color: rgba(255, 255, 255, 0.5);
+          margin: 0 20px 10px 0;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 120%;
+          cursor: pointer;
+        }
+        li.filter--checked{
+          color: transparent;
+          background: linear-gradient(62.92deg, #A826FF -4.27%, #42E8E0 110.19%);
+          background-clip: text;
+          text-decoration: underline;
+          text-decoration-color: #A826FF;
+          text-underline-offset: 4px;
+        }
+      }
+    }
+  }
+  .content__post{
+    height: 825px;
+    width: 680px;
+    background: #121326;
+    border-radius: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 24px;
+    margin-bottom: 20px;
+    .post__title{
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 120%;
+      color: rgba(255, 255, 255);
+    }
+    .post__line-spacer{
+      width: 100%;
+    }
+  }
+}
+.aside-wrapper{
+  grid-area: aside;
+  margin-right: auto;
+  margin-top: 40px;
+  .aside{
+    width: 244px;
+    height: 799px;
+    padding: 24px;
+    background: #121326;
+    border-radius: 15px;
+    .aside__title{
+      color: white;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 120%;
+    }
+    .aside__line-spacer{
+      margin: 15px 0;
+    }
+    ul.aside__reading-now-list{
+      li.reading-now-list__post{
+        .post__title{
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 150%;
+          color: 
+          rgba(255, 255, 255, 0.6);
+        }
+        .post__stats-line{
+          margin-top: 5px;
+          display: flex;
+          font-weight: 400;
+          font-size: 12px;
+          color: #31325C;
+        }
+        .stats-line__views{
+          margin-right: 30px;
+        }
+        .stats-added{
+          color: #07DBB4;
+        }
+      }
+    }
+  }
+}
