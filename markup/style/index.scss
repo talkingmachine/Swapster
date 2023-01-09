@@ -1,17 +1,46 @@
 @import "reset.css";
+@font-face {
+	font-family: 'SF-Pro-Display';
+	src: url('../fonts/SF-Pro-Display-Regular.eot');
+	src: local('☺'),  url('../fonts/SF-Pro-Display-Regular.ttf') format('truetype'),
+                    url("../fonts/SF-Pro-Display-Regular.otf") format("opentype"),
+                    url("../fonts/SF-Pro-Display-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+@mixin button($bgColor, $borderColor, $textColor) {
+  background-color: $bgColor;
+  border: 1px solid $borderColor;
+  border-radius: 10px;
+  color: $textColor;
+  padding: 10px 35px;
+  font-weight: 500;
+  font-size: 16px;
+}
+@mixin white-text($opacity) {
+  color: rgba(255, 255, 255, $opacity);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+
 
 body{
   background-color: #06071B;
 }
 .body-wrapper{
   display: grid;
-  grid-template-areas: "header header" "content aside";
+  grid-template-areas: "header header" "content aside" "footer footer";
+  font-family: 'SF-Pro-Display';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
 }
 .header-wrapper{
   grid-area: header;
+  background: rgba(255, 255, 255, 0.05);
   .header{
-    grid-area: header;
-    background: rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,7 +59,7 @@ body{
       justify-content: space-between;
       width: auto;
       .nav__link{
-        margin-left: 3vw;
+        margin-left: 2vw;
         color: white;
         text-decoration: none;
       }
@@ -70,7 +99,7 @@ body{
   margin: 40px 30px 0 auto;
   .content__start-plate{
     width: 825px;
-    height: 391px;
+    height: auto;
     background: #121326;
     border-radius: 15px;
     font-weight: 500;
@@ -144,22 +173,102 @@ body{
     }
   }
   .content__post{
-    height: 825px;
-    width: 680px;
+    height: auto;
+    width: 825px;
     background: #121326;
     border-radius: 15px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.6);
     padding: 24px;
     margin-bottom: 20px;
+    .post__top-info-line{
+      display: flex;
+      justify-content: flex-end;
+      color: #31325C;
+      font-weight: 400;
+      font-size: 12px;
+      .stats-line__views{
+        margin-right: 13px;
+      }
+    }
     .post__title{
       font-weight: 500;
       font-size: 30px;
       line-height: 120%;
       color: rgba(255, 255, 255);
+      margin-top: 14px;
     }
     .post__line-spacer{
       width: 100%;
+    }
+    .post__read-more{
+      border: 1px solid #07DBB4;
+      border-radius: 10px;
+      background: transparent;
+      height: 50px;
+      padding: 10px 36px;
+      font-weight: 500;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .post__bot-stats-line{
+      display: flex;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 150%;
+      color: #31325C;
+      .stats-line__dislikes{
+        margin: 0 20px;
+        .icon-thumbs-down{
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  .content__pages-swithing{
+    padding: 5px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    height: auto;
+    background: #121326;
+    .pages-swithing-button{
+      display: flex;
+      align-items: center;
+      background: transparent;
+      border: none;
+      border-radius: 15px;
+      color: #8287F3;
+      svg{
+        margin: 5px;
+      }
+    }
+    .pages-swithing-button--inactive{
+      color: rgba(130, 135, 243, 0.3);
+      svg{
+        stroke:#8287F3;
+        opacity: 0.3;
+      }
+    }
+    .pages-swithing__prev-page{
+      svg{
+        transform: rotate(180deg);
+      }
+    }
+    ul.pages-swithing__page-numbers{
+      display: flex;
+      align-items: center;
+      @include white-text(0.6);
+      li.page-numbers__item{
+        margin-left: 13px;
+      }
+      li.page-numbers--current{
+        padding: 2px 13px;
+        @include white-text(1);
+        border: 1px solid #07DBB4;
+        border-radius: 5px;
+      }
     }
   }
 }
@@ -169,7 +278,7 @@ body{
   margin-top: 40px;
   .aside{
     width: 244px;
-    height: 799px;
+    height: auto;
     padding: 24px;
     background: #121326;
     border-radius: 15px;
@@ -207,4 +316,96 @@ body{
       }
     }
   }
+}
+.footer-wrapper{
+  grid-area: footer;
+  height: auto;
+  background: #1F2146;
+  padding: 40px 300px;
+  .footer{
+    max-width: 1273px;
+    .footer__top-bar{
+      display: flex;
+      align-items: center;
+      justify-content:space-between;
+      .top-bar__logo{
+
+        justify-content: flex-start;
+      }
+      .top-bar__contact-email{
+        margin-left: auto;
+        .contact-email__email{
+          margin-left: 10px;
+          margin-right: 56px;
+          font-weight: 400;
+          font-size: 16px;
+          color: #FFFFFF;
+        }
+      }
+      .top-bar__launch-button{
+        display: flex;
+        .launch-button__label{
+          margin: auto 0;
+        }
+        @include button(transparent, #07DBB4, #07DBB4);
+        svg{
+          margin-left: 8px;
+          height: 28px;
+          width: 28px;
+        }
+      }
+    }
+    .footer__line-spacer{
+      width: 100%;
+      margin: 30px 0;
+      border: 1px solid rgba(6, 7, 27, 0.2);
+    }
+    .footer__content{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      column-gap: 150px;
+      max-height: 255px;
+      li{
+          line-height: 220%;
+          @include white-text(1)
+      }
+      .content__assets{
+        .assets__title{
+          @include white-text(0.6);
+        }
+      }
+      .content__crypto-info{
+        margin-bottom: auto;
+      }
+      .content__contact-us{
+        .contact-us__title{
+          @include white-text(1);
+          margin: 10px 0;
+        }
+        button{
+          margin-right: 7px;
+          padding: 0;
+          background: transparent;
+          border: none;
+        }
+      }
+    }
+    .footer__info{
+      display: flex;
+      justify-content: space-between;
+      @include white-text(0.3);
+      .info__item{
+        margin-right: 100px;
+      }
+      .copyright{
+        margin-left: auto;
+      }
+    }
+  }
+}
+/////////////////////////////////////
+.stats-added{
+  color: #07DBB4;
 }
