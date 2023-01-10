@@ -22,8 +22,26 @@
   font-weight: 400;
   font-size: 16px;
 }
+%default-trasition{
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+%hovered-button-transparent{
+  background-color:#07DBB4;
+  color: #06071B;
+}
+%hovered-button-green{
+  background:#FFFFFF;
+}
+%hovered-contact-svg{
+  rect{
+    fill:#07DBB4;
+  }
+}
+%hovered-text{
+  color:#07DBB4
+}
 
-
+///////////////////////////////////////
 
 body{
   background-color: #06071B;
@@ -60,8 +78,18 @@ body{
       width: auto;
       .nav__link{
         margin-left: 2vw;
+        padding: 4px 0;
         color: white;
         text-decoration: none;
+        @extend %default-trasition;
+      }
+      .nav__link:hover{
+        color: #07DBB4;
+      }
+      .nav__link--active{
+        color: #07DBB4;
+        text-decoration: underline;
+        text-underline-offset: 8px;
       }
     }
     .header__button-group{
@@ -74,6 +102,10 @@ body{
           background-color: transparent;
           border: none;
           color: white;
+          @extend %default-trasition;
+        }
+        .language-button:hover{
+          @extend %hovered-text;
         }
         .language--inactive{
           color: rgba(255, 255, 255, 0.6);
@@ -85,11 +117,12 @@ body{
       .header__join-button{
         height: 45px;
         width: 200px;
-        background: #07DBB4;
-        border-radius: 10px;
-        border: none;
         text-align: center;
-        color: black;
+        @include button(#07DBB4, #07DBB4, black);
+        @extend %default-trasition;
+      }
+      .header__join-button:hover{
+        @include button(#FFFFFF, #FFFFFF, black);
       }
     }
   }
@@ -210,6 +243,12 @@ body{
       font-weight: 500;
       font-size: 16px;
       color: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+
+      @extend %default-trasition;
+    }
+    .post__read-more:hover{
+      @extend %hovered-button-transparent
     }
     .post__bot-stats-line{
       display: flex;
@@ -289,19 +328,22 @@ body{
       line-height: 120%;
     }
     .aside__line-spacer{
-      margin: 15px 0;
+      margin: 10px 0;
     }
     ul.aside__reading-now-list{
       li.reading-now-list__post{
         .post__title{
+          display: block;
           font-weight: 400;
           font-size: 16px;
-          line-height: 150%;
-          color: 
-          rgba(255, 255, 255, 0.6);
+          color:rgba(255, 255, 255, 0.6);
+          @extend %default-trasition;
+        }
+        .post__title:hover{
+          @extend %hovered-text;
         }
         .post__stats-line{
-          margin-top: 5px;
+          margin-top: 7px;
           display: flex;
           font-weight: 400;
           font-size: 12px;
@@ -313,6 +355,10 @@ body{
         .stats-added{
           color: #07DBB4;
         }
+        @extend %default-trasition;
+      }
+      li.reading-now-list__post:hover{
+        color: #07DBB4;
       }
     }
   }
@@ -329,7 +375,6 @@ body{
       align-items: center;
       justify-content:space-between;
       .top-bar__logo{
-
         justify-content: flex-start;
       }
       .top-bar__contact-email{
@@ -337,9 +382,11 @@ body{
         .contact-email__email{
           margin-left: 10px;
           margin-right: 56px;
-          font-weight: 400;
-          font-size: 16px;
-          color: #FFFFFF;
+          @include white-text(1);
+          @extend %default-trasition;
+        }
+        .contact-email__email:hover{
+          @extend %hovered-text;
         }
       }
       .top-bar__launch-button{
@@ -347,12 +394,16 @@ body{
         .launch-button__label{
           margin: auto 0;
         }
-        @include button(transparent, #07DBB4, #07DBB4);
+        @include button(transparent, white, white);
         svg{
           margin-left: 8px;
           height: 28px;
           width: 28px;
         }
+        @extend %default-trasition;
+      }
+      .top-bar__launch-button:hover{
+        @include button(transparent, #07DBB4, #07DBB4);
       }
     }
     .footer__line-spacer{
@@ -368,8 +419,12 @@ body{
       column-gap: 150px;
       max-height: 255px;
       li{
-          line-height: 220%;
-          @include white-text(1)
+        line-height: 220%;
+        @include white-text(1);
+        @extend %default-trasition;
+      }
+      li:hover{
+        @extend %hovered-text;
       }
       .content__assets{
         .assets__title{
@@ -384,11 +439,17 @@ body{
           @include white-text(1);
           margin: 10px 0;
         }
-        button{
+        a{
           margin-right: 7px;
           padding: 0;
           background: transparent;
           border: none;
+          svg{
+            @extend %default-trasition;
+          }
+          svg:hover{
+            @extend %hovered-contact-svg;
+          }
         }
       }
     }
@@ -398,6 +459,10 @@ body{
       @include white-text(0.3);
       .info__item{
         margin-right: 100px;
+        @extend %default-trasition;
+      }
+      .info__item:hover{
+        color: white;
       }
       .copyright{
         margin-left: auto;
@@ -408,4 +473,7 @@ body{
 /////////////////////////////////////
 .stats-added{
   color: #07DBB4;
+}
+button, a{
+  cursor: pointer;
 }
