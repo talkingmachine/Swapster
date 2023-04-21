@@ -213,6 +213,9 @@ body {
   font-weight: 400;
   font-size: 12px;
 }
+.content-wrapper .content__post .post__top-info-line span {
+  margin-left: 3px;
+}
 .content-wrapper .content__post .post__top-info-line .stats-line__views {
   margin-right: 13px;
 }
@@ -221,10 +224,14 @@ body {
   font-size: 30px;
   line-height: 120%;
   color: rgb(255, 255, 255);
-  margin-top: 14px;
+  margin: 14px 0 30px 0;
 }
 .content-wrapper .content__post .post__line-spacer {
   width: 100%;
+  margin: 20px 0 15px 0;
+}
+.content-wrapper .content__post .post__description {
+  margin: 20px 0;
 }
 .content-wrapper .content__post .post__read-more {
   border: 1px solid #07DBB4;
@@ -292,6 +299,7 @@ body {
 }
 .content-wrapper .content__pages-swithing ul.pages-swithing__page-numbers li.page-numbers__item {
   margin-left: 13px;
+  cursor: pointer;
 }
 .content-wrapper .content__pages-swithing ul.pages-swithing__page-numbers li.page-numbers--current {
   padding: 2px 13px;
@@ -335,6 +343,9 @@ body {
   font-weight: 400;
   font-size: 12px;
   color: #31325C;
+}
+.aside-wrapper .aside ul.aside__reading-now-list li.reading-now-list__post .post__stats-line span {
+  margin-left: 3px;
 }
 .aside-wrapper .aside ul.aside__reading-now-list li.reading-now-list__post .stats-line__views {
   margin-right: 30px;
